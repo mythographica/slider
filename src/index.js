@@ -28,3 +28,6 @@ app.init()
 	.then(app.start)
 	.then(initKeyboard.bind(app));
 
+window.addEventListener('click', () => {
+	app.slideNext();
+});

@@ -6,6 +6,7 @@ export default function () {
 	
 	listener.simple_combo('left', app.slidePrev);
 	listener.simple_combo('right', app.slideNext);
+	listener.simple_combo('space', app.slideNext);
 	listener.simple_combo('home', app.setSlideIndex.bind(app, 0));
 	listener.simple_combo('end', app.setSlideIndex.bind(app, -1));
 	listener.simple_combo('ctrl m', () => {
