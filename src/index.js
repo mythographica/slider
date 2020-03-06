@@ -28,6 +28,8 @@ app.init()
 	.then(app.start)
 	.then(initKeyboard.bind(app));
 
-window.addEventListener('click', () => {
-	app.slideNext();
+window.addEventListener('click', (e) => {
+	if (e.target && e.target.tagName !== 'circle') {
+		app.slideNext();
+	}
 });
