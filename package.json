@@ -1,0 +1,42 @@
+{
+  "name": "mnemonica-react-slieds",
+  "version": "1.0.0",
+  "description": "presentations framework based on react+mdx & mnemonica",
+  "keywords": [
+    "mnemonica",
+    "react",
+    "starter",
+    "slides",
+    "MDX"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "@mdx-js/runtime": "^1.5.7",
+    "@theme-ui/presets": "^0.3.0",
+    "@theme-ui/prism": "^0.3.0",
+    "d3": "^5.15.0",
+    "mnemonica": "^0.9.733",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.4.0",
+    "spectacle": "^5.8.0",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,97 @@
+body {
+  background: #020203;
+  color: #d3d3e7;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.Title {
+  text-align: center;
+}
+
+.Title h1 {
+  font-weight: 700;
+  font-size: 7em;
+  margin-top: 3em;
+}
+
+.Title .subtitle {
+  margin-top: -0.5em;
+  color: orange;
+}
+
+.Header {
+  text-align: center;
+}
+
+.Header h1 {
+  font-weight: 700;
+  font-size: 5em;
+  margin-top: 5em;
+}
+
+.Slide {
+  margin: 5em 5em 5em 9em;
+}
+
+.Slide h1 {
+  color: #d3d3e7;
+  font-size: 3em;
+  margin-left: 2em;
+}
+
+
+.Slide .prism-code {
+  padding-left: 5em;
+  font-size: 2em !important;
+}
+
+.Slide .codehuge {
+  font-size: 3em !important;
+}
+
+.Slide .codesmall {
+  font-size: 1.2em !important;
+}
+.Slide .codejsx {
+  font-size: 1.2em !important;
+  padding-top: 2em;
+  padding-bottom: 3em;
+}
+
+.red {
+  color: red !important;
+}
+
+.Footer {
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  font-size: 1em;
+  bottom: 4em;
+  width: 100%;
+}
+
+.Footer .myname {
+  border-top: 1px solid red;
+  padding: 5pt 11pt 0pt 11pt;
+  position: absolute;
+  top: 0px;
+  left: 1em;
+}
+.Footer .slides {
+  border-top: 1px solid red;
+  padding: 5pt 11pt 0pt 11pt;
+  position: absolute;
+  top: 0px;
+  right: 1em;
+}
+
+.Chart {
+  font-size: 2em;
+  color : red;
+  text-align: center;
+  vertical-align: bottom;
+  border: 1px solid gray;
+  padding: 10pt 10pt 10pt 30pt;
+  min-height: 700px;
+}

@@ -1,0 +1,34 @@
+# "this" is Slide Prototype Inheritance Hierarchy Tree 
+
+<Chart id='chart' opts={{
+	title: 'please click any dot',
+	chart : {
+		type : 'tree',
+		chartData : {
+			name : 'app',
+			children : app.collectTypes('View')
+		},
+		dy : 20,
+		dx : 55,
+		width : 350,
+		margin : {
+			top: 30, right: 40, bottom: 10, left: 40
+		},
+		stash : ['Root']
+	}
+}} />
+
+-----
+
+# don't forget to check `./public/slides`
+
+-----
+
+# don't forget to use `./gen.sh` after adding slides
+
+# it re-generates `./public/slides/list.txt`
+
+
+-----
+
+# thank you
