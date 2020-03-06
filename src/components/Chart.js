@@ -15,13 +15,14 @@ const Chart = function (props) {
 		chart
 	} = opts;
 	
-	setTimeout(() => {
-		const chartRoot = document.getElementById(id);
+	const appendSVG = function (chartRoot) {
 		const chartSVG = charts[chart.type](chart);
-		chartRoot.append(chartSVG);
-	}, 100);
+		if (chartRoot) {
+			chartRoot.append(chartSVG);
+		}
+	};
 	
-	return (<div id={id} className='Chart'>{opts.title}</div>);
+	return (<div ref={appendSVG} id={id} className='Chart'>{opts.title}</div>);
 };
 
 export default Chart;
