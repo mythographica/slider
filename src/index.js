@@ -15,11 +15,11 @@ window.onerror = function (...args) {
 
 defaultNamespace.registerHook('postCreation', postHook);
 
-const App = define(Main);
-const Slide = App.define(Root);
-	Slide.define(Title);
-	Slide.define(Header);
-	Slide.define(Mdx);
+const App = define('Main', Main);
+const Slide = App.define('Root', Root);
+	Slide.define('Title', Title);
+	Slide.define('Header',Header);
+	Slide.define('Mdx', Mdx);
 
 const app = App.call(Component, 'root');
 // const app = new App('root');
