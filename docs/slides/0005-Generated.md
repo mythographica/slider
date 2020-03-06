@@ -6,9 +6,5 @@
 
 -----
 
------
-
 # Though Let the Show Begin!
-
------
 
