@@ -33,3 +33,24 @@ window.addEventListener('click', (e) => {
 		app.slideNext();
 	}
 });
+
+// const rescale = () => {
+// 	try {
+// 		const {
+// 			scrollWidth,
+// 			clientWidth,
+// 			offsetWidth,
+// 		} = window.document.body;
+// 		const minwidth = Math.min(scrollWidth, clientWidth, offsetWidth);
+// 		const maxwidth = Math.max(scrollWidth, clientWidth, offsetWidth);
+// 		const deltawidth = maxwidth / minwidth;
+// 		const scale = minwidth / 1920 * deltawidth;
+// 		if (scale < 1) {
+// 			window.document.body.style.zoom = `${scale*100}%`;
+// 			app.setScale(scale);
+// 		}
+// 	} catch (e) {}
+// };
+
+// window.setTimeout(rescale, 1000);
+// window.addEventListener('resize', rescale);

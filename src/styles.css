@@ -1,4 +1,6 @@
 body {
+  min-width: 1920;
+  min-height: 1000;
   background: #020203;
   color: #d3d3e7;
   font-family: sans-serif;
@@ -11,8 +13,8 @@ body {
 
 .Title h1 {
   font-weight: 700;
-  font-size: 7em;
-  margin-top: 3em;
+  font-size: 12vh;
+  margin-top: 32vh;
 }
 
 .Title .subtitle {
@@ -26,37 +28,62 @@ body {
 
 .Header h1 {
   font-weight: 700;
-  font-size: 5em;
-  margin-top: 5em;
+  font-size: 12vh;
+  margin-top: 32vh;
 }
 
 .Slide {
-  margin: 5em 5em 5em 9em;
+  margin: 3vh 5vw 2vh 5vw;
 }
 
 .Slide h1 {
+  margin-left: 0.2vw;
   color: #d3d3e7;
-  font-size: 3em;
-  margin-left: 2em;
+  font-size: 5vh;
 }
 
+.Slide h2 {
+  font-size: 4vh;
+}
+
+.Slide h3 {
+  font-size: 3vh;
+}
+
+.Slide h4 {
+  font-size: 2vh;
+}
+
+.Slide h5 {
+  font-size: 1.5vh;
+}
 
 .Slide .prism-code {
-  padding-left: 5em;
-  font-size: 2em !important;
+  padding-left: 5vw;
+  font-size: 2vh !important;
+}
+
+.Slide .language-javascript {
+  padding: 0.1vh 0 0 5vw;
+  margin: 0;
 }
 
 .Slide .codehuge {
-  font-size: 3em !important;
+  font-size: 5vh !important;
+  padding: 0.1vh 0 0 5vw;
+  margin: 0;
 }
 
 .Slide .codesmall {
-  font-size: 1.2em !important;
+  font-size: 3vh !important;
+  padding: 0.1vh 0 0 5vw;
+  margin: 0;
 }
+
 .Slide .codejsx {
-  font-size: 1.2em !important;
-  padding-top: 2em;
-  padding-bottom: 3em;
+  font-size: 1.7vh !important;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 .red {
@@ -66,32 +93,31 @@ body {
 .Footer {
   font-family: 'Courier New', Courier, monospace;
   position: absolute;
-  font-size: 1em;
-  bottom: 4em;
+  font-size: 1.2vh;
+  bottom: 3vw;
   width: 100%;
 }
 
 .Footer .myname {
   border-top: 1px solid red;
-  padding: 5pt 11pt 0pt 11pt;
+  padding: 0.5vw 0.2vh 0vw 0.2vh;
   position: absolute;
   top: 0px;
-  left: 1em;
+  left: 1vw;
 }
 .Footer .slides {
   border-top: 1px solid red;
-  padding: 5pt 11pt 0pt 11pt;
+  padding: 0.5vw 0.2vh 0vw 0.2vh;
   position: absolute;
   top: 0px;
-  right: 1em;
+  right: 1vw;
 }
 
 .Chart {
-  font-size: 2em;
+  font-size: 5vh;
   color : red;
   text-align: center;
   vertical-align: bottom;
   border: 1px solid gray;
-  padding: 10pt 10pt 10pt 30pt;
-  min-height: 700px;
+  min-height: 75vh;
 }

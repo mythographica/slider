@@ -14,7 +14,7 @@ Root.prototype.View = function () {
 	const app = this;
 	
 	const {
-		slides
+		slides,
 	} = app;
 	
 	const {

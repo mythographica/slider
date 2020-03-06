@@ -250,7 +250,7 @@ Main.prototype = {
 			o.push(value);
 			return o;
 		}, []);
-	}
+	},
 	
 };
 
