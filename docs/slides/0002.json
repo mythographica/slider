@@ -3,5 +3,5 @@
 	"title" : "indeed something"
 }, {
 	"view" : "Mdx",
-	"data" : "\n# from authors of .lodashMixins\n\n```javascript\n\n_.hop(obj, prop) {\n\t/* ... obj.hasOwnProperty */\n} \n\n_.poh(prop, obj) {\n\t/* ... aka obj.propertyOwnHas */\n}"
+	"data" : "<br />\n\n# from authors of .lodashMixins:\n\n```javascript className=codehuge\n\n_.hop(obj, prop) {\n\t/* ... obj.hasOwnProperty */\n} \n\n_.poh(prop, obj) {\n\t/* ... aka obj.propertyOwnHas */\n}"
 }]
