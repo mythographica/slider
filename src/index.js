@@ -43,11 +43,4 @@ app.init()
 		new app.Keys();
 	});
 
-// if (!app.print) {
-// 	window.addEventListener('click', (e) => {
-// 		if (e.target && e.target.tagName !== 'circle') {
-// 			app.slideNext();
-// 		}
-// 	});
-// }
 

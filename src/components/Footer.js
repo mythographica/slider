@@ -11,9 +11,10 @@ const Footer = function ({ count, index, level }) {
 };
 	
 Footer.prototype.View = function () {
+	const app = this;
 	
 	return (
-		<div className="Footer">
+		<div className="Footer" onClick={app.clickNext}>
 			<span className="myname">{NICK_TITLE}</span>
 			<span className="slides"> { this.index }.{ this.level } » { this.count }</span>
 		</div>

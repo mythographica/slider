@@ -5,8 +5,9 @@ const Title = function () {
 };
 
 Title.prototype.View = function () {
+	const app = this;
 	return (
-		<div className="Title">
+		<div className="Title" onClick={app.clickNext} >
 			<h1>{ this.title }</h1>
 			<h1 className="subtitle">{ this.subtitle }</h1>
 		</div>

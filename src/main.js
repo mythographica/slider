@@ -204,6 +204,13 @@ Main.prototype = {
 		}
 	},
 	
+	clickNext () {
+		if (this.print) {
+			return;
+		}
+		this.slideNext();
+	},
+
 	_fetchSlide (slideFileName) {
 		
 		const [, ext] = slideFileName.split('.');
