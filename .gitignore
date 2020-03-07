@@ -105,4 +105,4 @@ public
 .tern-port
 
 package-lock.json
-src/slides
+public/slides
