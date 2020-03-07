@@ -2,17 +2,23 @@ import React from "react";
 
 import { NICK_TITLE } from '../config';
 
-const Footer = ({ count, index, level }) => {
+const Footer = function ({ count, index, level }) {
+		
+	this.count = `${count}`;
+	this.index = `${index}`.padStart(count.length, '0');
+	this.level = `${level}`;
+
+};
 	
-	count = `${count}`;
-	index = `${index}`.padStart(count.length, '0');
+Footer.prototype.View = function () {
 	
 	return (
 		<div className="Footer">
-			<h3 className="myname">{NICK_TITLE}</h3>
-			<h3 className="slides"> { index }.{ level } » { count }</h3>
+			<span className="myname">{NICK_TITLE}</span>
+			<span className="slides"> { this.index }.{ this.level } » { this.count }</span>
 		</div>
 	);
 };
+
 
 export default Footer;

@@ -2,7 +2,7 @@ import { Component } from 'react-dom';
 
 import { define, defaultNamespace } from "mnemonica";
 
-import { Root, Title, Header, Mdx } from './components';
+import { Root, Title, Header, Mdx, Footer } from './components';
 
 import Keys from './keyboard';
 
@@ -20,9 +20,18 @@ const App = define('Main', Main);
 App.define('Keys', Keys);
 
 const Slide = App.define('Root', Root);
-	Slide.define('Title', Title);
-	Slide.define('Header',Header);
-	Slide.define('Mdx', Mdx);
+
+	Slide
+		.define('Title', Title)
+		.define('Footer', Footer);
+
+	Slide
+		.define('Header',Header)
+		.define('Footer', Footer);
+
+	Slide
+		.define('Mdx', Mdx)
+		.define('Footer', Footer);
 
 const app = App.call(Component, 'root');
 // const app = new App('root');

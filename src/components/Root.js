@@ -2,16 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'theme-ui';
 import { dark } from '@theme-ui/presets';
-import { Progress } from 'theme-ui';
 
 import Footer from './Footer';
 
 const Root = function () {
-	this.rootElement = document.getElementById( this.rootId );
-};
-
-Root.prototype.View = function () {
 	const app = this;
+	this.rootElement = document.getElementById( this.rootId );
 	
 	const {
 		slides,
@@ -27,15 +23,26 @@ Root.prototype.View = function () {
 	} = current;
 	
 	const slide = new app[view]();
-	const SlideView = slide.View;
+	this.SlideView = slide.View;
+	
+	this.footer = new slide.Footer(counters);
+	this.FooterView = this.footer.View;
+
+};
+
+Root.prototype.View = function () {
+	
+	const {
+		SlideView
+	} = this;
 	
 	ReactDOM.render(
 		<React.StrictMode>
 			<ThemeProvider theme={dark}>
-				<Progress min={1} max={counters.count} value={counters.index}></Progress>
-				<SlideView />
+				<div className="Slide">
+					<SlideView />
+				</div>
 			</ThemeProvider>
-			<Footer {...counters} />
 		</React.StrictMode>,
 		this.rootElement
 	);

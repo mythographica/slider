@@ -1,4 +1,5 @@
 import React from "react";
+import { Progress } from 'theme-ui';
 import MDX from '@mdx-js/runtime';
 import mdx from '@mdx-js/mdx';
 import { ThemeProvider } from 'theme-ui';
@@ -18,7 +19,9 @@ Mdx.prototype.View = function () {
 	const me = this;
 	
 	const {
-		data
+		data,
+		FooterView,
+		counters
 	} = me;
 	
 	const jsx = mdx.sync(data);
@@ -50,13 +53,15 @@ Mdx.prototype.View = function () {
 	const MDXContent = data;
 	
 	return (
-		<ThemeProvider theme={dark}>
-			<div className="Slide MDX">
+		<div className="MDX">
+			<Progress min={1} max={counters.count} value={counters.index}></Progress>
+			<div className="SlideContent">
 				<MDX components={components} scope={scope}>
 					{MDXContent}
 				</MDX>
 			</div>
-		</ThemeProvider>
+			<FooterView />
+		</div>
 	);
 };
 

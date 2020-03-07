@@ -89,7 +89,6 @@ const Main = function ( rootId ) {
 Main.prototype = {
 	
 	async init () {
-		this.root = new this.Root();
 		const list = await fetch('./slides/list.txt')
 			.then(response => {
 				return response.text();
@@ -121,6 +120,7 @@ Main.prototype = {
 	},
 	
 	makeRender () {
+		this.root = new this.Root();
 		this.root.View();
 	},
 	

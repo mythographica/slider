@@ -16,6 +16,10 @@ body .print {
   height: 1080px;
 }
 
+.SlideContent {
+  padding: 3vh 5vw 2vh 5vw;
+}
+
 .Slide .Title {
   display: block;
   text-align: center;
@@ -47,7 +51,7 @@ body .print {
 
 .Slide {
   display: block;
-  margin: 3vh 5vw 2vh 5vw;
+  margin: 0;
   page-break-inside: avoid;
 }
 
@@ -107,25 +111,24 @@ body .print {
 
 .Footer {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2vh;
-  top: Z0vh;
+  font-size: 1.5vh;
   width: 100%;
   page-break-inside: avoid;
 }
 
 .Footer .myname {
   border-top: 1px solid red;
-  padding: 0.5vw 0.2vh 0vw 0.2vh;
+  padding: 0.2vw 0.2vh 0.5vw 0.2vh;
   position: absolute;
-  bottom: 0px;
+  bottom: 0.1vh;
   left: 1vw;
 }
 
 .Footer .slides {
   border-top: 1px solid red;
-  padding: 0.5vw 0.2vh 0vw 0.2vh;
+  padding: 0.2vw 0.2vh 0.5vw 0.2vh;
   position: absolute;
-  bottom: 0px;
+  bottom: 0.1vh;
   right: 1vw;
 }
 
@@ -138,10 +141,11 @@ body .print {
   min-height: 75vh;
 }
 
-.slide2print {
+
+.slide2print .Slide {
   page-break-before: always;
 }
 
-.slide2print .Footer {
+.slide2print .Slide .Footer {
   display: none;
 }

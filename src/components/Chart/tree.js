@@ -76,7 +76,13 @@ const tree = function ({
 			.attr("fill-opacity", 10)
 			.attr("stroke-opacity", 10)
 			.on("click", d => {
-				d.children = d.children ? null : d._children;
+				// debugger;
+				if (d._children) {
+					d.children = d.children ? null : d._children;
+				} else {
+					const pc = d.parent.children.filter(it => it !== d);
+					d.parent.children = pc.length ? pc : null;
+				}
 				update(d);
 			});
 	
