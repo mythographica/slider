@@ -5,6 +5,7 @@ import { dark } from '@theme-ui/presets';
 
 const Root = function () {
 	const app = this;
+	
 	this.rootElement = document.getElementById( this.rootId );
 	
 	const {

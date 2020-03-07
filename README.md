@@ -28,8 +28,7 @@ $ mkdir ./public/slides
 $ echo "REACT_APP_SLIDES_DIR=slides" > .env
 
 ```
-
-put your **.mdx**, **.md**, **.json** slides there
+put **.mdx**, **.md**, **.json** slides to that directory
 
 # 4. generate necessary slides list file
 
@@ -41,7 +40,28 @@ $ cat ./gen.sh
 
 ```
 
-# 5. start your presentation
+# 5. additional configuration
+
+other availiable `REACT_APP_`'s of `.env` are:
+
+```sh
+# this is the first 
+REACT_APP_SPEAKERNAME=some_nick_name
+
+# starter slide index, for any cases
+REACT_APP_STARTER_SLIDE=7
+
+```
+
+# 6. you can find more info
+
+* [Advanced Configuration](https://create-react-app.dev/docs/advanced-configuration/)
+
+* [MDX](https://mdxjs.com/)
+
+* [D3.js - Data-Driven Documents](https://d3js.org/)
+
+# 7. start presentation
 
 ```sh
 

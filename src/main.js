@@ -92,7 +92,8 @@ const Main = function ( rootId ) {
 Main.prototype = {
 	
 	async init () {
-		const list = await fetch(`./${SLIDES_DIR}/list.txt`)
+		const listPath = `./${SLIDES_DIR}/list.txt`;
+		const list = await fetch(listPath)
 			.then(response => {
 				return response.text();
 			})
@@ -110,6 +111,14 @@ Main.prototype = {
 			});
 			
 		this.slides.list.push(...list);
+		
+		if (window.sessionStorage) {
+			const index = parseInt(window.sessionStorage.getItem('STARTER_SLIDE'));
+			if (index < this.slides.list.length) {
+				this.setSlideIndex(index);
+			}
+		}
+
 		return this;
 	},
 	
@@ -292,6 +301,10 @@ Main.prototype = {
 				if (this.print) {
 					this.printFetched(slideList);
 					return;
+				}
+				
+				if (window.sessionStorage) {
+					window.sessionStorage.setItem('STARTER_SLIDE', index);
 				}
 				
 				slides.slideList = slideList;
