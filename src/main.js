@@ -1,4 +1,7 @@
-import { STARTER_SLIDE } from './config';
+import {
+	STARTER_SLIDE,
+	SLIDES_DIR
+} from './config';
 
 import { defaultCollection } from "mnemonica";
 
@@ -89,7 +92,7 @@ const Main = function ( rootId ) {
 Main.prototype = {
 	
 	async init () {
-		const list = await fetch('./slides/list.txt')
+		const list = await fetch(`./${SLIDES_DIR}/list.txt`)
 			.then(response => {
 				return response.text();
 			})
@@ -223,7 +226,7 @@ Main.prototype = {
 		
 		const parser = ext === 'json' ? 'json' : 'text';
 		
-		return fetch(`./slides/${slideFileName}`)
+		return fetch(`./${SLIDES_DIR}/${slideFileName}`)
 			.then(response => {
 				return response[parser]();
 			})

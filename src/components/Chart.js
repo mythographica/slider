@@ -1,8 +1,10 @@
 import React from "react";
 import tree from './Chart/tree';
+import pie from './Chart/pie';
 
 const charts = {
 	tree,
+	pie,
 };
 
 const Chart = function (props) {
@@ -11,6 +13,7 @@ const Chart = function (props) {
 		id,
 		opts,
 	} = props;
+	
 	const {
 		chart
 	} = opts;

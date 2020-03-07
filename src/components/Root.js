@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'theme-ui';
 import { dark } from '@theme-ui/presets';
 
-import Footer from './Footer';
-
 const Root = function () {
 	const app = this;
 	this.rootElement = document.getElementById( this.rootId );

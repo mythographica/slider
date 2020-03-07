@@ -2,8 +2,6 @@ import React from "react";
 import { Progress } from 'theme-ui';
 import MDX from '@mdx-js/runtime';
 import mdx from '@mdx-js/mdx';
-import { ThemeProvider } from 'theme-ui';
-import { dark } from '@theme-ui/presets';
 import Prism from '@theme-ui/prism';
 
 import Chart from './Chart';

@@ -1,0 +1,79 @@
+# please click Root dot 2 find Mdx
+
+<Chart id='chart' opts={{
+	title: '"this" is Inheritance tree of slides',
+	chart : {
+		type : 'tree',
+		chartData : {
+			name : 'app',
+			children : app.collectTypes(),
+			// children : app.collectTypes(app.print ? null : 'View'),
+		},
+		print : app.print,
+		dy : 20,
+		dx : 55,
+		width : 350,
+		margin : {
+			top: 25, right: 40, bottom: 10, left: 40
+		},
+		stash : ['Root']
+	}
+}} />
+
+-----
+
+<center>
+	<h1>... this is our sample task~bugs % report ...</h1> 
+	
+	<Chart id='chart' opts={{
+		title: 'task type chart',
+		chart : {
+			type : 'pie',
+			chartData : {
+				columns : ['name', 'value'],
+				data: [{
+					name: 'Task 47%',
+					value: 7177
+				}, {
+					name: 'Bugs 41%',
+					value: 6212
+				}, {
+					name: '',
+					value: 618
+				}, {
+					name: '',
+					value: 441
+				}, {
+					name: '',
+					value: 203
+				}, {
+					name: '',
+					value: 388
+				}]
+			},
+			width : 400,
+			height: 150,
+			fontSize: '5px'
+		}
+	}} />
+	
+</center>
+	
+-----
+
+# don't forget to check `./public/slides`
+
+## 4 printing just add `?print` to the end of URL and Save it as PDF
+
+-----
+
+# don't forget to use `./gen.sh` after adding slides
+
+# it re-generates `./public/slides/list.txt`
+
+# ^ FullHD ± better
+
+-----
+
+# thank you
+
