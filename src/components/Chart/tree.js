@@ -6,7 +6,8 @@ const tree = function ({
 	dx,
 	margin,
 	width,
-	stash
+	stash,
+	print
 	// tree,
 	// diagonal
 }) {
@@ -21,6 +22,9 @@ const tree = function ({
 	root.descendants().forEach((d, i) => {
 		d.id = i;
 		d._children = d.children;
+		if (print) {
+			return;
+		}
 		if (d.depth && stash && stash.includes(d.data.name)) {
 			d.children = null;
 		}

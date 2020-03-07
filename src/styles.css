@@ -1,39 +1,54 @@
+* {
+  page-break-inside: avoid;
+}
+
 body {
-  min-width: 1920;
-  min-height: 1000;
   background: #020203;
   color: #d3d3e7;
   font-family: sans-serif;
   overflow: hidden;
 }
 
-.Title {
-  text-align: center;
+body .print {
+  min-width: 1920px !important;
+  width: 1950px !important;
+  min-height: 1080px;
+  height: 1080px;
 }
 
-.Title h1 {
+.Slide .Title {
+  display: block;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.Slide .Title h1 {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 32vh;
 }
 
-.Title .subtitle {
-  margin-top: -0.5em;
+.Slide .Title .subtitle {
+  margin-top: -15vh;
   color: orange;
 }
 
-.Header {
+.Slide .Header {
+  display: block;
   text-align: center;
+  page-break-inside: avoid;
 }
 
-.Header h1 {
+.Slide .Header h1 {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 32vh;
 }
 
 .Slide {
+  display: block;
   margin: 3vh 5vw 2vh 5vw;
+  page-break-inside: avoid;
 }
 
 .Slide h1 {
@@ -92,24 +107,25 @@ body {
 
 .Footer {
   font-family: 'Courier New', Courier, monospace;
-  position: absolute;
   font-size: 1.2vh;
-  bottom: 3vw;
+  top: Z0vh;
   width: 100%;
+  page-break-inside: avoid;
 }
 
 .Footer .myname {
   border-top: 1px solid red;
   padding: 0.5vw 0.2vh 0vw 0.2vh;
   position: absolute;
-  top: 0px;
+  bottom: 0px;
   left: 1vw;
 }
+
 .Footer .slides {
   border-top: 1px solid red;
   padding: 0.5vw 0.2vh 0vw 0.2vh;
   position: absolute;
-  top: 0px;
+  bottom: 0px;
   right: 1vw;
 }
 
@@ -120,4 +136,12 @@ body {
   vertical-align: bottom;
   border: 1px solid gray;
   min-height: 75vh;
+}
+
+.slide2print {
+  page-break-before: always;
+}
+
+.slide2print .Footer {
+  display: none;
 }

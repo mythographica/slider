@@ -15,12 +15,11 @@ Root.prototype.View = function () {
 	
 	const {
 		slides,
+		counters
 	} = app;
 	
 	const {
 		current,
-		index,
-		count
 	} = slides;
 	
 	const {
@@ -33,10 +32,10 @@ Root.prototype.View = function () {
 	ReactDOM.render(
 		<React.StrictMode>
 			<ThemeProvider theme={dark}>
-				<Progress min={0} max={count-1} value={index}></Progress>
+				<Progress min={1} max={counters.count} value={counters.index}></Progress>
 				<SlideView />
-				<Footer {...slides} />
 			</ThemeProvider>
+			<Footer {...counters} />
 		</React.StrictMode>,
 		this.rootElement
 	);

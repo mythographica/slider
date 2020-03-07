@@ -51,7 +51,7 @@ Mdx.prototype.View = function () {
 	
 	return (
 		<ThemeProvider theme={dark}>
-			<div className="Slide">
+			<div className="Slide MDX">
 				<MDX components={components} scope={scope}>
 					{MDXContent}
 				</MDX>

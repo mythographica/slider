@@ -5,7 +5,10 @@ const CODES = {
 	39 : 'slideNext',
 };
 
+const NICK_TITLE = 'github@wentout';
+
 export {
 	STARTER_SLIDE,
-	CODES
+	CODES,
+	NICK_TITLE,
 };

@@ -7,15 +7,21 @@ const Main = function ( rootId ) {
 	let slideListIndex = 0;
 	let slideList = [];
 	
-	this.rootId = rootId;
-	
-	this.slides = {
+	const slides = {
 		count: 0,
 		index: STARTER_SLIDE,
 		list: [],
 		slideListIndex,
 		direction : 'next',
 	};
+	
+	const print = /print$/.test(window.location.href);
+	
+	Object.assign(this, {
+		rootId,
+		print,
+		slides
+	});
 	
 	Object.defineProperty(this.slides, 'count', {
 		get () {
@@ -46,32 +52,52 @@ const Main = function ( rootId ) {
 	Object.defineProperty(this.slides, 'slideList', {
 		set (value) {
 			
-			if (Array.isArray(value)) {
-				slideList = value;
-				if (this.direction === 'next') {
-					slideListIndex = 0;
-				} else {
-					slideListIndex = slideList.length -1;
-				}
+			slideList = value;
+			if (this.direction === 'next') {
+				slideListIndex = 0;
 			} else {
-				slideList = [value];
+				slideListIndex = slideList.length -1;
 			}
 			
 		}
 	});
+	
+	Object.defineProperty(this, 'counters', {
+		get () {
+			var progressCount = this.slides.count;
+			var progressValue = this.slides.index;
+			var progressIndex = this.slides.slideListIndex;
+			
+			if (print) {
+				const split = rootId.split('_');
+				progressCount = split[1];
+				progressValue = split[2];
+				progressIndex = split[3];
+			}
+			
+			return {
+				count : parseInt(progressCount),
+				index : parseInt(progressValue) + 1,
+				level : parseInt(progressIndex) + 1
+			};
+		
+		}
+	});
+	
 };
 
 Main.prototype = {
+	
 	async init () {
 		this.root = new this.Root();
 		const list = await fetch('./slides/list.txt')
-			.then((response) => {
+			.then(response => {
 				return response.text();
 			})
 			.catch(error => {
 				return error;
 			})
-			.then((data) => {
+			.then(data => {
 				if (data instanceof Error) {
 					window.alert('something wrong');
 				}
@@ -84,7 +110,13 @@ Main.prototype = {
 		this.slides.list.push(...list);
 		return this;
 	},
+	
 	start () {
+		if (this.print) {
+			this.startPrint();
+			return;
+		}
+		
 		this.fetchSlide();
 	},
 	
@@ -131,6 +163,7 @@ Main.prototype = {
 		this.setSlideIndex();
 		
 	},
+	
 	getPrevSlide () {
 		
 		if (this.slides.index > 0) {
@@ -158,6 +191,7 @@ Main.prototype = {
 			this.makeRender();
 		}
 	},
+	
 	slidePrev () {
 		const {
 			slides
@@ -169,20 +203,9 @@ Main.prototype = {
 			this.makeRender();
 		}
 	},
-
-	fetchSlide () {
-		const app = this;
-		const {
-			slides
-		} = app;
-		const {
-			index,
-			list
-		} = slides;
+	
+	_fetchSlide (slideFileName) {
 		
-		slides.slideListIndex = 0;
-		
-		const slideFileName = list[index];
 		const [, ext] = slideFileName.split('.');
 		
 		const viewTypes = {
@@ -193,28 +216,30 @@ Main.prototype = {
 		
 		const parser = ext === 'json' ? 'json' : 'text';
 		
-		fetch(`./slides/${slideFileName}`)
-			.then((response) => {
+		return fetch(`./slides/${slideFileName}`)
+			.then(response => {
 				return response[parser]();
 			})
 			.catch(error => {
 				return error;
 			})
-			.then((data) => {
+			.then(data => {
 				if (data instanceof Error) {
 					window.alert('something wrong');
 				}
 				
+				let slideList = [''];
+				
 				if (ext === 'json') {
 					if (Array.isArray(data)) {
-						slides.slideList = data;
+						slideList = data;
 					} else {
-						slides.slideList = data;
+						slideList = [data];
 					}
 				} else {
 					const view = viewTypes[ext];
 					
-					const slideList = data.split('-----').reduce((arr, mdx) => {
+					slideList = data.split('-----').reduce((arr, mdx) => {
 						
 						mdx = mdx.split('\n').map(it => it.trim()).join('\n');
 						
@@ -225,11 +250,101 @@ Main.prototype = {
 						return arr;
 					}, []);
 					
-					slides.slideList = slideList;
 				}
 				
-				app.makeRender();
+				return slideList;
+				
+				
 			});
+	},
+
+	fetchSlide () {
+		
+		const slide = this;
+		const {
+			slides
+		} = slide;
+		
+		const {
+			index,
+			list
+		} = slides;
+		
+		slides.slideListIndex = 0;
+		
+		const slideFileName = list[index];
+		
+		this
+			._fetchSlide(slideFileName)
+			.then((slideList) => {
+				
+				
+				if (this.print) {
+					this.printFetched(slideList);
+					return;
+				}
+				
+				slides.slideList = slideList;
+				slide.makeRender();
+				
+			});
+			
+	},
+	
+	startPrint () {
+		document.body.style.overflow = 'auto';
+		document.body.className = 'print';
+		
+		const rootElement = document.getElementById( this.rootId );
+		const slidesCount = this.slides.list.length;
+		
+		this.slides.list.reduce((slides, slideName, index) => {
+			
+			const slideRootId = `slide_${slidesCount}_${index}`;
+			const slide = this.fork(slideRootId, true);
+			
+			slide.slides.list = [slideName];
+			slide.slides.index = 0;
+			
+			const slideRoot = document.createElement('div');
+			slideRoot.id = slideRootId;
+			slideRoot.className = 'slideRoot';
+			
+			slides.push({
+				slide,
+				slideRootId,
+				slideRoot,
+			});
+			
+			rootElement.appendChild(slideRoot);
+			slide.fetchSlide();
+			return slides;
+		}, []);
+	},
+	
+	printFetched (slideList) {
+		const {
+			rootId
+		} = this;
+		
+		const rootElement = document.getElementById( rootId );
+		slideList.forEach((element, index) => {
+			const slide2printId = `${rootId}_${index}`;
+			const slide = this.fork(slide2printId, true);
+			
+			slide.slides.slideList = [element];
+			
+			const slide2print = document.createElement('div');
+			slide2print.id = slide2printId;
+			slide2print.className = 'slide2print';
+			rootElement.appendChild(slide2print);
+			
+			slide.root = new slide.Root();
+			
+			// setTimeout(() => {
+			slide.makeRender();
+			// }, 1000);
+		});
 	},
 	
 	collectTypes (leaf = undefined, subtypes = defaultCollection) {

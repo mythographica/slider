@@ -6,8 +6,10 @@ const Header = function () {
 
 Header.prototype.View = function () {
 	return (
-		<div className="Header">
-			<h1>{ this.title }</h1>
+		<div className="Slide">
+			<div className="Header">
+				<h1>{ this.title }</h1>
+			</div>
 		</div>
 	);
 };

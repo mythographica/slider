@@ -6,8 +6,10 @@
 		type : 'tree',
 		chartData : {
 			name : 'app',
-			children : app.collectTypes('View')
+			children : app.collectTypes(),
+			// children : app.collectTypes(app.print ? null : 'View'),
 		},
+		print : app.print,
 		dy : 20,
 		dx : 55,
 		width : 350,
@@ -22,6 +24,8 @@
 
 # don't forget to check `./public/slides`
 
+## 4 printing just add `?print` to the end of URL and Save it as PDF
+
 -----
 
 # don't forget to use `./gen.sh` after adding slides
@@ -33,3 +37,4 @@
 -----
 
 # thank you
+
