@@ -109,6 +109,10 @@ body .print {
   color: red !important;
 }
 
+.center {
+  text-align: center;
+}
+
 .Footer {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5vh;

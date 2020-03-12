@@ -17,7 +17,7 @@
     "@theme-ui/presets": "^0.3.0",
     "@theme-ui/prism": "^0.3.0",
     "d3": "^5.15.0",
-    "mnemonica": "^0.9.736",
+    "mnemonica": "^0.9.737",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.4.0",

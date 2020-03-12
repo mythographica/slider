@@ -5,8 +5,9 @@ export default function ({inheritedInstance}) {
 				try {
 					return value.call(inheritedInstance, ...args);
 				} catch (error) {
-					error.instance = inheritedInstance;
-					throw error;
+					debugger;
+					const correctError = new inheritedInstance.exception(error);
+					throw correctError;
 				}
 			}
 		}

@@ -6,7 +6,7 @@ import Prism from '@theme-ui/prism';
 
 import Chart from './Chart';
 
-import { Box, Heading } from 'theme-ui';
+import { Box, Heading, Donut, Container, Message, Embed, Link, Badge, Grid, AspectRatio } from 'theme-ui';
 
 const Mdx = function () {
 	this.data = this.slides.current.data;
