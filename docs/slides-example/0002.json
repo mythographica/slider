@@ -1,7 +1,7 @@
 [{
-	"view" : "Header",
+	"view" : "Starter",
 	"title" : "... something ..."
 }, {
-	"view" : "Mdx",
+	"view" : "MDX",
 	"data" : "<br />\n\n# from authors of .lodashMixins:\n\n```javascript className=codehuge\n\n_.hop(obj, prop) {\n\t/* ... obj.hasOwnProperty */\n} \n\n_.poh(prop, obj) {\n\t/* ... aka obj.propertyOwnHas */\n}"
 }]

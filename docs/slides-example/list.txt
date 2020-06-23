@@ -1,9 +1,8 @@
-0000.json
-0001.json
-0002.json
-0003.json
-0004.mdx
-0005-Generated.md
-0006.mdx
-0007.mdx
-list.txt
+0000.json 0
+0001.json 0
+0002.json 0
+0003.json 0
+0004.mdx 0
+0005-Generated.md 2
+0006.mdx 0
+0007.mdx 4

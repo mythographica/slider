@@ -9,11 +9,66 @@ body {
   overflow: hidden;
 }
 
+#rootError {
+  z-index: 100;
+  /* background: white; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  /* color: black; */
+  padding: 10vh 5vh 5vh 17vh;
+  font-size: 3vh;
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+#snowflakes-container {
+  z-index: 1000;
+  /* background: white; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: none;
+}
+
+#snowflakes-container .snowflake{
+  color: white;
+}
+
+#snowflakes-link {
+  color: white;
+  z-index: 1000;
+  /* background: white; */
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  margin: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#snowflakes-link a {
+  color: white;
+}
+
 body .print {
   min-width: 1920px !important;
   width: 1950px !important;
   min-height: 1080px;
   height: 1080px;
+}
+
+progress {
+  min-height: 7pt;
 }
 
 .SlideContent {
@@ -30,23 +85,38 @@ body .print {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 32vh;
+  color: steelblue;
 }
 
 .Slide .Title .subtitle {
-  margin-top: -15vh;
+  margin-top: -10vh;
   color: orange;
 }
 
-.Slide .Header {
+.Slide .StarterSlide {
   display: block;
   text-align: center;
   page-break-inside: avoid;
 }
 
-.Slide .Header h1 {
+.Slide .StarterSlide h1 {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 32vh;
+  color: slategray;
+}
+
+.Slide .StarterSlide p {
+  font-weight: 700;
+  font-size: 5vh;
+  margin-left: 42vh;
+  color: 'orange';
+}
+
+.author {
+  font-weight: 700;
+  font-size: 3vh;
+  margin-left: 42vh;
 }
 
 .Slide {
@@ -60,6 +130,35 @@ body .print {
   color: #d3d3e7;
   font-size: 5vh;
 }
+
+.Slide h1.big {
+  margin-left: 0.2vw;
+  color: #d3d3e7;
+  font-size: 9vh;
+}
+
+.Slide h1.big2 {
+  margin-left: 0.2vw;
+  color: #d3d3e7;
+  font-size: 7vh;
+}
+
+.Slide h1.borderline {
+	position: absolute;
+	right: 0vw;
+	top: -10vh;
+	font-size: 100vh;
+	color:rgb(67, 45, 190);
+}
+
+.Slide h1.borderline2 {
+	position: absolute;
+	right: -11vw;
+	top: -10vh;
+	font-size: 100vh;
+	color:rgb(67, 45, 190);
+}
+
 
 .Slide h2 {
   font-size: 4vh;
@@ -77,6 +176,10 @@ body .print {
   font-size: 1.5vh;
 }
 
+/* td {
+  border: 1px solid red !important;
+} */
+
 .Slide .prism-code {
   padding-left: 5vw;
   font-size: 2vh !important;
@@ -87,8 +190,44 @@ body .print {
   margin: 0;
 }
 
+.Slide .codegiant {
+  font-size: 7vh !important;
+  padding: 0.1vh 0 0 5vw;
+  margin: 0;
+}
+
+.Slide .codegiantnoshift {
+  font-size: 7vh !important;
+  padding: 0.1vh 0 0 2vw;
+  margin: 0;
+}
+
+.Slide .codegiantshift {
+  font-size: 7vh !important;
+  padding: 0.1vh 0 0 9vw;
+  margin: 0;
+}
+
 .Slide .codehuge {
   font-size: 5vh !important;
+  padding: 0.1vh 0 0 5vw;
+  margin: 0;
+}
+
+.Slide .codehugeshift {
+  font-size: 5vh !important;
+  padding: 0.1vh 0 0 11vw;
+  margin: 0;
+}
+
+.Slide .codemediumshift {
+  font-size: 4.2vh !important;
+  padding: 0.1vh 0 0 11vw;
+  margin: 0;
+}
+
+.Slide .codemedium {
+  font-size: 4.2vh !important;
   padding: 0.1vh 0 0 5vw;
   margin: 0;
 }
@@ -99,8 +238,36 @@ body .print {
   margin: 0;
 }
 
+.Slide .codesmallshift {
+  font-size: 3vh !important;
+  padding: 0.1vh 0 0 11vw;
+  margin: 0;
+}
+
+.Slide .codeshiftlittle {
+  padding: 0.1vh 0 0 25vw;
+  margin: 0;
+}
+
+.Slide .codesmaller {
+  font-size: 2.5vh !important;
+  padding: 0.1vh 0 0 11vw;
+  margin: 0;
+}
+
+.Slide .codenoshift {
+  padding-left: 10pt;
+  font-size: 5vh;
+}
+
 .Slide .codejsx {
   font-size: 1.7vh !important;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+.Slide .codejsxbig {
+  font-size: 5vh !important;
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
@@ -111,6 +278,56 @@ body .print {
 
 .center {
   text-align: center;
+}
+
+.SlideContent > h1:first-child {
+  color: steelblue;
+  margin-left: 10vw;
+}
+
+.ShiftTable {
+  margin-left: 8vw;
+}
+
+.ShiftTable td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2vh;
+}
+.ShiftTable td p {
+  margin-left: 5vh;
+}
+
+
+
+.ShiftTableMore {
+  margin-left: 8vw;
+}
+
+.ShiftTableMore td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2vh;
+}
+.ShiftTableMore td p {
+  margin-left: 5vh;
+  font-size: 3vh;
+}
+
+.ShiftTableMore td h3 {
+  color: red;
+  margin-right: 5vh;
+  font-size:5vh;
+}
+
+
+
+.Shift {
+  margin-left: 8vw;
+}
+
+.Shift > h1:first-child {
+  margin-left: 2vw;
 }
 
 .Footer {
@@ -141,7 +358,7 @@ body .print {
   color : red;
   text-align: center;
   vertical-align: bottom;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   min-height: 75vh;
 }
 
@@ -152,4 +369,63 @@ body .print {
 
 .slide2print .Slide .Footer {
   display: none;
+}
+
+.timelineText {
+  line-height: 3vh;
+  margin-top: 0px;
+}
+
+.timelineText h1 {
+  line-height: 3vh;
+  margin-top: 0px;
+}
+
+.timelineText2 {
+  line-height: 3vh;
+  margin-top: 0px;
+}
+
+.timelineText2 h1 {
+  font-size: 2.5vw;
+  line-height: 3vh;
+  margin-top: 0px;
+}
+
+.timelineTextBlack {
+  line-height: 3vh;
+  margin-top: 0px;
+  color: black;
+}
+
+.timelineTextBlack h1 {
+  line-height: 3vh;
+  margin-top: 0px;
+  color: black;
+}
+
+.timelineTextBlack2 {
+  line-height: 3vh;
+  margin-top: 0px;
+  color: black;
+}
+
+.timelineTextBlack2 h1 {
+  font-size: 2.5vw;
+  margin-top: 0px;
+  color: black;
+}
+
+#chartAbs {
+  position: absolute;
+  top: 45vh;
+  width: 89vw;
+  height: 30vh;
+}
+
+#chartAbs2 {
+  position: absolute;
+  top: 27vh;
+  width: 89vw;
+  height: 30vh;
 }

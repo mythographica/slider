@@ -1,15 +1,17 @@
 import "../styles.css";
 
-import Root from './Root';
+import Slide from './Slide';
 import Title from './Title';
-import Header from './Header';
-import Mdx from './Mdx';
+import Starter from './Starter';
+import MDX from './MDX';
 import Footer from './Footer';
+import Progressor from './Progressor';
 
 export {
-	Root,
+	Slide,
 	Title,
-	Header,
-	Mdx,
+	Starter,
+	MDX,
 	Footer,
+	Progressor,
 };

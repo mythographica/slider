@@ -1,36 +1,41 @@
+const wrapErrored = function (method) {
+	const app = this;
+	return function () {
+		if (app.errored) {
+			window.alert('please press Ctrl + Esc to continue');
+		} else {
+			method();
+		}
+	}
+};
+
 
 export default function () {
-	
+
 	const app = this;
+
+	const {
+		slidePrev,
+		slideNext,
+		setSlideIndex,
+		requestSlideNav,
+		unsetErrored
+	} = app;
+
+	const w = wrapErrored.bind(this);
+
 	const listener = new window.keypress.Listener();
-	
-	listener.simple_combo('left', app.slidePrev);
-	listener.simple_combo('right', app.slideNext);
-	listener.simple_combo('space', app.slideNext);
-	listener.simple_combo('home', app.setSlideIndex.bind(app, 0));
-	listener.simple_combo('end', app.setSlideIndex.bind(app, -1));
-	listener.simple_combo('ctrl m', () => {
-		const {
-			count
-		} = app.slides;
-		const msg = `please input slide number between 1 an ${count+1}`;
-		const input = window.prompt(msg);
-		var number;
-		try {
-			number = parseInt(input, 10) - 1;
-			if (number === -1) {
-				number = 0;
-			}
-		} catch (error) {
-			window.alert('invalid input');
-		}
-		try {
-			app.setSlideIndex(number);
-		} catch (error) {
-			window.alert(error.message);
-		}
+
+	listener.simple_combo('left', w(slidePrev));
+	listener.simple_combo('right', w(slideNext));
+	listener.simple_combo('space', w(slideNext));
+	listener.simple_combo('ctrl home', w(setSlideIndex.bind(app, 0)));
+	listener.simple_combo('ctrl end', w(setSlideIndex.bind(app, -1)));
+	listener.simple_combo('ctrl m', w(requestSlideNav));
+	listener.simple_combo('ctrl esc', () => {
+		unsetErrored();
 	});
-	
+
 	/*
 	window.onkeyup = function (event) {
 		
